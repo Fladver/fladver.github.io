@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gonochki — уличные гонки на Android</title>
+<meta name="description" content="Gonochki — оффлайн уличные гонки с полицейскими погонями для Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0e0d0b; --panel:#1a1814; --line:#2c2822; --text:#efe8dc; --muted:#a49a88; --accent:#f2b51c; --red:#e2412f; --blue:#3a78ff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font:16px/1.6 Inter, system-ui, sans-serif; }
+  a { color:inherit; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+  header.hero { position:relative; overflow:hidden; padding:72px 0 64px; border-bottom:1px solid var(--line);
+    background:radial-gradient(1200px 500px at 70% 0%, #5a3c10 0%, transparent 60%), linear-gradient(180deg,#1c160c,var(--bg)); }
+  .hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:6px;
+    background:repeating-linear-gradient(90deg,var(--red) 0 40px,var(--blue) 40px 80px); opacity:.85; animation:siren 1s steps(2) infinite; }
+  @keyframes siren { 50% { filter:hue-rotate(180deg); } }
+  .tag { display:inline-block; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); border:1px solid #5a4614; padding:4px 10px; border-radius:4px; }
+  h1 { font-family:"Russo One", sans-serif; font-size:clamp(48px,11vw,112px); line-height:1; margin:18px 0 12px; letter-spacing:.02em;
+    background:linear-gradient(180deg,#fff3c4,var(--accent) 60%,#b9790b); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; }
+  .lead { font-size:clamp(17px,2.4vw,21px); color:#d9cfbd; max-width:620px; }
+  .cta { margin-top:32px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+  .btn { display:inline-flex; align-items:center; gap:10px; font-family:"Russo One",sans-serif; font-size:20px; text-decoration:none;
+    padding:16px 28px; border-radius:8px; background:var(--accent); color:#1a1200; border:none; transition:transform .15s, box-shadow .15s; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 8px 30px #f2b51c55; }
+  .btn.off { background:#2a261f; color:var(--muted); cursor:not-allowed; pointer-events:none; }
+  .meta { color:var(--muted); font-size:14px; }
+  section { padding:56px 0; border-bottom:1px solid var(--line); }
+  h2 { font-family:"Russo One",sans-serif; font-size:28px; margin-bottom:22px; }
+  .shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
+  .shots img { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; border:1px solid var(--line); display:block; background:var(--panel); cursor:zoom-in; }
+  .feats { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; }
+  .card b { display:block; font-family:"Russo One",sans-serif; font-weight:400; font-size:18px; color:var(--accent); margin-bottom:6px; }
+  .card p { color:#cfc5b3; font-size:15px; }
+  table { width:100%; border-collapse:collapse; }
+  td { padding:10px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  td:first-child { color:var(--accent); width:40%; font-weight:600; }
+  ol { padding-left:20px; color:#cfc5b3; } ol li { margin:6px 0; }
+  footer { padding:32px 0 48px; color:var(--muted); font-size:14px; }
+  #zoom { position:fixed; inset:0; background:#000d; display:none; align-items:center; justify-content:center; padding:16px; z-index:9; cursor:zoom-out; }
+  #zoom img { max-width:100%; max-height:100%; border-radius:8px; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Android · оффлайн · бесплатно</span>
+    <h1>GONOCHKI</h1>
+    <p class="lead">Уличные гонки по ночному городу и полицейские погони. Уходи от копов, копи нитро в заносах и приезжай первым. Интернет не нужен.</p>
+    <div class="cta">
+      <a id="dl" class="btn off" href="#">Скачать APK: скоро</a>
+      <span class="meta" id="dlmeta">Сборка готовится · Android 8.0+</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Скриншоты</h2>
+    <div class="shots" id="shots">
+      <img src="img/shot1.jpg" alt="Старт гонки" loading="lazy">
+      <img src="img/shot2.jpg" alt="Город" loading="lazy">
+      <img src="img/shot3.jpg" alt="Погоня" loading="lazy">
+      <img src="img/shot4.jpg" alt="Нитро" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Что внутри</h2>
+    <div class="feats">
+      <div class="card"><b>Уличный спринт</b><p>Два круга по городу против трёх соперников. Чекпоинты, отсчёт перед стартом, место и время на экране.</p></div>
+      <div class="card"><b>Погони</b><p>Пронёсся мимо патруля на скорости — начинается погоня. Розыск растёт до 5 уровня, копов становится всё больше.</p></div>
+      <div class="card"><b>Busted или ушёл</b><p>Остановишься рядом с полицией — арест. Оторвёшься и продержишься 8 секунд — получишь награду.</p></div>
+      <div class="card"><b>Нитро и дрифт</b><p>Аркадная физика. Заносы на ручнике заполняют нитро, а нитро даёт рывок и расширяет обзор камеры.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Управление</h2>
+    <table>
+      <tr><td>Влево / вправо</td><td>Кнопки слева внизу</td></tr>
+      <tr><td>Газ / тормоз</td><td>Кнопки справа внизу (тормоз на месте — задний ход)</td></tr>
+      <tr><td>Дрифт</td><td>Ручник: зажми в повороте</td></tr>
+      <tr><td>Нитро</td><td>Синяя полоса под спидометром</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Как установить</h2>
+    <ol>
+      <li>Нажми «Скачать APK» на телефоне.</li>
+      <li>Открой скачанный файл. Если Android спросит, разреши установку из этого источника.</li>
+      <li>Запусти Gonochki. Телефон держи горизонтально.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Gonochki · сделано на Unity · <a href="https://fladver.github.io/">другие игры Fladver</a></div>
+</footer>
+
+<div id="zoom"><img alt=""></div>
+<script>
+  // Скриншоты увеличиваются по клику; если картинки ещё нет — прячем её
+  const zoom = document.getElementById('zoom');
+  document.querySelectorAll('#shots img').forEach(img => {
+    img.onerror = () => img.remove();
+    img.onclick = () => { zoom.querySelector('img').src = img.src; zoom.style.display = 'flex'; };
+  });
+  zoom.onclick = () => zoom.style.display = 'none';
+</script>
+</body>
+</html>

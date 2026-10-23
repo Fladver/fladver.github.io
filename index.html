@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fladver — игры</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0e0d0b; --panel:#1a1814; --line:#2c2822; --text:#efe8dc; --muted:#a49a88; --accent:#f2b51c; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font:16px/1.6 Inter, system-ui, sans-serif; }
+  .wrap { max-width:900px; margin:0 auto; padding:64px 16px; }
+  h1 { font-family:"Russo One",sans-serif; font-size:44px; margin-bottom:8px; }
+  p.sub { color:var(--muted); margin-bottom:36px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+  a.game { display:block; text-decoration:none; color:inherit; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:24px; transition:border-color .15s, transform .15s; }
+  a.game:hover { border-color:var(--accent); transform:translateY(-2px); }
+  a.game b { font-family:"Russo One",sans-serif; font-weight:400; font-size:24px; color:var(--accent); display:block; margin-bottom:6px; }
+  a.game span { color:#cfc5b3; font-size:15px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Fladver</h1>
+    <p class="sub">Мои игры</p>
+    <div class="grid">
+      <a class="game" href="gonochki/"><b>Gonochki</b><span>Уличные гонки с полицейскими погонями для Android. Работает без интернета.</span></a>
+      <a class="game" href="castle-defenders/"><b>Castle Defenders</b><span>Защита замка.</span></a>
+    </div>
+  </div>
+</body>
+</html>
